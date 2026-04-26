@@ -1,11 +1,3 @@
 {
-  "debts": [
-    {
-      "id": "d2",
-      "name": "æå",
-      "type": "iOwe",
-      "amount": 320,
-      "status": "approved"
-    }
-  ]
+  "debts": []
 }
