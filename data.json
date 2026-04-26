@@ -5,7 +5,9 @@
       "name": "冷沐泽",
       "type": "theyOwe",
       "amount": 45,
-      "status": "approved"
+      "status": "approved",
+      "dueDate": "2026-05-06",
+      "note": "傲隐"
     },
     {
       "id": "mofph11exsfh",
