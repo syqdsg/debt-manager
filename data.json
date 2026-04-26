@@ -1,13 +1,6 @@
 {
   "debts": [
     {
-      "id": "mofp4nt9i9hb",
-      "name": "å·æ²æ³½",
-      "type": "theyOwe",
-      "amount": 45,
-      "status": "approved"
-    },
-    {
       "id": "mofp4uh8r1yx",
       "name": "lengmuze",
       "type": "theyOwe",
