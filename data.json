@@ -2,10 +2,10 @@
   "debts": [
     {
       "id": "mofp6q58osa2",
-      "name": "冷沐泽",
+      "name": "å·æ²æ³½",
       "type": "iOwe",
       "amount": 45,
-      "status": "pending"
+      "status": "approved"
     }
   ]
 }
