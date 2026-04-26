@@ -27,6 +27,13 @@
       "type": "theyOwe",
       "amount": 19,
       "status": "approved"
+    },
+    {
+      "id": "mofpi8mrablf",
+      "name": "庄昊研",
+      "type": "theyOwe",
+      "amount": 12,
+      "status": "approved"
     }
   ]
 }
