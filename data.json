@@ -1,6 +1,11 @@
 {
   "debts": [
-    { "id": "d1", "name": "张三", "type": "theyOwe", "amount": 500, "status": "approved" },
-    { "id": "d2", "name": "李四", "type": "iOwe", "amount": 320, "status": "approved" }
+    {
+      "id": "d2",
+      "name": "æå",
+      "type": "iOwe",
+      "amount": 320,
+      "status": "approved"
+    }
   ]
 }
