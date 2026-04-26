@@ -6,6 +6,13 @@
       "type": "theyOwe",
       "amount": 45,
       "status": "approved"
+    },
+    {
+      "id": "mofph11exsfh",
+      "name": "冷沐泽",
+      "type": "theyOwe",
+      "amount": 68,
+      "status": "approved"
     }
   ]
 }
