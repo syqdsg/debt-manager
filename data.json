@@ -1,3 +1,11 @@
 {
-  "debts": []
+  "debts": [
+    {
+      "id": "mofpe83kpcho",
+      "name": "冷沐泽",
+      "type": "theyOwe",
+      "amount": 45,
+      "status": "approved"
+    }
+  ]
 }
