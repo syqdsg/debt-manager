@@ -23,7 +23,9 @@
       "name": "冷沐泽",
       "type": "theyOwe",
       "amount": 30,
-      "status": "approved"
+      "status": "approved",
+      "dueDate": "2026-05-06",
+      "note": "和平2"
     },
     {
       "id": "mofphtx5764s",
