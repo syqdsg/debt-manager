@@ -13,6 +13,13 @@
       "type": "theyOwe",
       "amount": 68,
       "status": "approved"
+    },
+    {
+      "id": "mofph99ba0lm",
+      "name": "冷沐泽",
+      "type": "theyOwe",
+      "amount": 30,
+      "status": "approved"
     }
   ]
 }
