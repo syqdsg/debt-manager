@@ -20,6 +20,13 @@
       "type": "theyOwe",
       "amount": 30,
       "status": "approved"
+    },
+    {
+      "id": "mofphtx5764s",
+      "name": "屠泽熠",
+      "type": "theyOwe",
+      "amount": 19,
+      "status": "approved"
     }
   ]
 }
