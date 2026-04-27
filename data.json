@@ -44,15 +44,6 @@
       "dueDate": "2026-05-06",
       "note": "和平精英充值",
       "status": "approved"
-    },
-    {
-      "id": "moh42wnhk3d6",
-      "name": "123",
-      "type": "iOwe",
-      "amount": 123,
-      "dueDate": "2026-05-02",
-      "note": "123",
-      "status": "pending"
     }
   ]
 }
