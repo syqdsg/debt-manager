@@ -35,6 +35,15 @@
       "status": "approved",
       "dueDate": "暂定",
       "note": "线下向沈众鑫买蛋，由管理员垫付"
+    },
+    {
+      "id": "mogk1uy26ve1",
+      "name": "冷沐泽",
+      "type": "theyOwe",
+      "amount": 74,
+      "dueDate": "2026-05-06",
+      "note": "和平精英充值",
+      "status": "approved"
     }
   ]
 }
