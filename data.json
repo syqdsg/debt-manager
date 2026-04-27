@@ -35,15 +35,6 @@
       "status": "approved",
       "dueDate": "暂定",
       "note": "线下向沈众鑫买蛋，由管理员垫付"
-    },
-    {
-      "id": "mogjio14t390",
-      "name": "冷沐泽",
-      "type": "theyOwe",
-      "amount": 70,
-      "dueDate": "2026-05-06",
-      "note": "和平",
-      "status": "pending"
     }
   ]
 }
