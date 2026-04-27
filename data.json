@@ -44,6 +44,15 @@
       "dueDate": "2026-05-06",
       "note": "和平精英充值",
       "status": "approved"
+    },
+    {
+      "id": "mogki8bxgt9p",
+      "name": "冷沐泽",
+      "type": "theyOwe",
+      "amount": 75,
+      "dueDate": null,
+      "note": "sb",
+      "status": "pending"
     }
   ]
 }
