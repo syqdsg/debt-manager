@@ -4,12 +4,16 @@ on:
   workflow_dispatch:
     inputs:
       action:
-        description: '操作类型'
+        description: '操作类型 (add / update_all / approve / delete)'
         required: true
         type: string
-      payload:
-        description: 'JSON 数据'
-        required: true
+      debt_data:
+        description: '债务数据 JSON'
+        required: false
+        type: string
+      debt_id:
+        description: '债务ID (用于approve/delete操作)'
+        required: false
         type: string
 
 jobs:
@@ -21,74 +25,64 @@ jobs:
         with:
           token: ${{ secrets.GH_TOKEN }}
 
-      - name: 处理并更新数据
+      - name: 处理数据
         run: |
           ACTION="${{ github.event.inputs.action }}"
-          PAYLOAD='${{ github.event.inputs.payload }}'
+          DEBT_DATA='${{ github.event.inputs.debt_data }}'
+          DEBT_ID="${{ github.event.inputs.debt_id }}"
           
-          echo "操作类型: $ACTION"
+          echo "操作: $ACTION"
           
+          # 确保 data.json 存在
           if [ ! -f data.json ]; then
             echo '{"debts":[]}' > data.json
           fi
           
+          # 使用 Python 处理 JSON
           python3 << EOF
-          import json, sys, os
+          import json, sys
 
           with open('data.json', 'r', encoding='utf-8') as f:
               data = json.load(f)
 
-          action = os.environ['ACTION']
-          payload = json.loads(os.environ['PAYLOAD'])
+          action = '$ACTION'
+          debt_data_str = '''$DEBT_DATA'''
+          debt_id = '$DEBT_ID'
 
           if action == 'add':
-              data['debts'].append(payload)
-              print(f"添加记录: {payload.get('name')} - {payload.get('amount')}元")
+              # 添加一条记录
+              new_debt = json.loads(debt_data_str)
+              data['debts'].append(new_debt)
+              print(f"已添加记录: {new_debt.get('name')} - {new_debt.get('amount')}元")
 
           elif action == 'update_all':
-              data = payload
-              print(f"全量更新，共 {len(data.get('debts', []))} 条记录")
+              # 全量更新
+              new_data = json.loads(debt_data_str)
+              data['debts'] = new_data.get('debts', [])
+              print(f"已全量更新，共 {len(data['debts'])} 条记录")
 
           elif action == 'approve':
-              debt_id = payload.get('id')
+              # 审核通过
               for d in data['debts']:
                   if d.get('id') == debt_id:
                       d['status'] = 'approved'
-                      print(f"审核通过: {d.get('name')}")
-                      break
-
-          elif action == 'reject':
-              debt_id = payload.get('id')
-              before = len(data['debts'])
-              data['debts'] = [d for d in data['debts'] if d.get('id') != debt_id]
-              print(f"拒绝并删除，移除 {before - len(data['debts'])} 条记录")
-
-          elif action == 'edit':
-              debt_id = payload.get('id')
-              updates = payload.get('updates', {})
-              for d in data['debts']:
-                  if d.get('id') == debt_id:
-                      for key, value in updates.items():
-                          d[key] = value
-                      print(f"编辑记录: {d.get('name')}")
+                      print(f"已审核通过: {d.get('name')}")
                       break
 
           elif action == 'delete':
-              debt_id = payload.get('id')
+              # 删除记录
               before = len(data['debts'])
               data['debts'] = [d for d in data['debts'] if d.get('id') != debt_id]
-              print(f"删除记录，移除 {before - len(data['debts'])} 条记录")
+              print(f"已删除记录，从 {before} 条减少到 {len(data['debts'])} 条")
 
           with open('data.json', 'w', encoding='utf-8') as f:
               json.dump(data, f, ensure_ascii=False, indent=2)
-
-          print("操作完成")
           EOF
 
       - name: 提交更改
         run: |
-          git config user.name "GitHub Actions Bot"
+          git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
           git add data.json
-          git diff --staged --quiet || git commit -m "🤖 自动更新: ${{ github.event.inputs.action }}"
+          git diff --staged --quiet || git commit -m "📝 ${{ github.event.inputs.action }} - 债务数据更新"
           git push
