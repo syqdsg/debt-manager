@@ -44,15 +44,6 @@
       "dueDate": "2026-05-06",
       "note": "和平精英充值",
       "status": "approved"
-    },
-    {
-      "id": "moh5n3wwdq0x",
-      "name": "冷丫丫",
-      "type": "theyOwe",
-      "amount": 12,
-      "dueDate": "2026-05-07",
-      "note": "",
-      "status": "pending"
     }
   ]
 }
