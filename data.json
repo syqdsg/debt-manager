@@ -1,15 +1,6 @@
 {
   "debts": [
     {
-      "id": "mofph99ba0lm",
-      "name": "冷沐泽",
-      "type": "theyOwe",
-      "amount": 30,
-      "status": "approved",
-      "dueDate": "2026-05-06",
-      "note": "买和平精英游戏皮肤：小马宝莉"
-    },
-    {
       "id": "mofpi8mrablf",
       "name": "庄昊研",
       "type": "theyOwe",
